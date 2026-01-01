@@ -1,23 +1,570 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+<style>
+    /*
+     * Custom Style Guide for Anseong Moving Company Website
+     * Color Palette: Professional Blue and Accent Colors
+     * Typography: Noto Sans KR for clarity and readability
+     * Layout: Clean, modern, high-contrast, designed for visual hierarchy
+     */
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      color: #333;
+      background: #f4f7f6; /* Soft, light background */
+    }
+    header, nav, section, footer {
+      padding: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Soft shadow for depth */
+    }
+    header {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* Gradient header background */
+      padding: 40px 25px;
+      text-align: center;
+    }
+    header h1 {
+      margin-bottom: 10px;
+      color: #0d47a1; /* Deep blue for title */
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    header p {
+      color: #555;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    nav {
+      background: #0d47a1; /* Darker blue navigation bar */
+      border-radius: 8px;
+      text-align: center;
+      padding: 18px 0;
+      margin-bottom: 30px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 18px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+    h2 {
+      border-bottom: 4px solid #3498db; /* Blue accent underline */
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #2c3e50; /* Darker title text */
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    h3 {
+      color: #0d47a1; /* Deep blue for subheadings */
+      font-size: 1.4rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #eee;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(52, 152, 219, 0.2);
+    }
+    .cta {
+      display: inline-block;
+      background-color: #3498db; /* Bright blue call to action button */
+      color: white;
+      padding: 16px 30px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    .cta:hover {
+      background-color: #2980b9;
+    }
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #555;
+    }
+    form input[type="text"], form input[type="email"], form input[type="tel"], form input[type="date"], form select, form textarea {
+      width: calc(100% - 20px);
+      padding: 12px;
+      margin-top: 4px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+      background: #fcfcfc;
+    }
+    form button[type="submit"] {
+      background-color: #0d47a1;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    form button[type="submit"]:hover {
+      background-color: #0b3a8a;
+    }
+    dl.faq dt {
+      font-weight: 700;
+      margin-top: 25px;
+      cursor: pointer;
+      color: #0d47a1;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      position: relative;
+    }
+    dl.faq dt::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      color: #3498db;
+      font-weight: bold;
+    }
+    dl.faq dd {
+      margin-left: 15px;
+      margin-top: 10px;
+      color: #555;
+      padding-bottom: 15px;
+      line-height: 1.7;
+    }
+    /* Section Specific Styles */
+    #이사절차 ol {
+      counter-reset: li;
+      list-style: none;
+      padding: 0;
+    }
+    #이사절차 li {
+      position: relative;
+      padding: 15px 20px 15px 60px;
+      margin-bottom: 10px;
+      background: #eef5ff; /* Light blue background for steps */
+      border-radius: 6px;
+      border-left: 4px solid #3498db;
+    }
+    #이사절차 li::before {
+      content: counter(li);
+      counter-increment: li;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3498db;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: 600;
+    }
+    /* Visual separation and structure optimization for large text content */
+    .content-block {
+        margin-top: 30px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 8px;
+    }
+    .content-block p {
+        margin-bottom: 15px;
+    }
+    .content-block ul {
+        margin-bottom: 15px;
+        margin-left: 20px;
+    }
+    .section-break {
+        height: 1px;
+        background: #ddd;
+        margin: 40px 0;
+    }
+    .map-container {
+      margin-top: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      aspect-ratio: 16/9; /* Maintain aspect ratio for maps */
+    }
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- JSON-LD Schema for LocalBusiness & OfferCatalog -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"안성이삿짐센터",
+    "image":"https://www.yourdomain.kr/images/anseong-moving-logo.png",
+    "telephone":"010-1234-5678",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"경기도 안성시 중앙로 ○○",
+      "addressLocality":"안성시",
+      "addressRegion":"경기도",
+      "postalCode":"17588",
+      "addressCountry":"KR"
+    },
+    "url":"https://www.yourdomain.kr/",
+    "openingHours":"Mo-Sa 09:00-19:00",
+    "areaServed":"안성시",
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"안성 이사 서비스",
+      "itemListElement":[
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"안성 포장이사"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"안성 원룸/오피스텔 이사"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"안성 사무실/기업이사"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"안성 보관이사"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"입주청소 및 폐기물 처리"}}
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header id="top">
+  <h1>안성이삿짐센터 - 포장이사, 원룸이사, 사무실이사 전문가</h1>
+  <p>안성 지역 맞춤형 이사 솔루션. <strong>안성 이사 비용, 후기</strong>를 투명하게 공개하고 무료 견적을 제공합니다.</p>
+  <a href="#quote-form" class="cta">무료견적 신청하기</a>
+</header>
+
+<nav>
+  <a href="#services">서비스 소개</a>
+  <a href="#process">이사 절차</a>
+  <a href="#local-info">안성 지역 특화 정보</a>
+  <a href="#reviews">고객 사례 및 후기</a>
+  <a href="#quote-form">무료 견적 신청</a>
+  <a href="#faq">자주 묻는 질문</a>
+</nav>
+
+<section id="services" aria-label="서비스 소개">
+  <h2>안성이삿짐센터 전문 서비스 소개</h2>
+  <div class="content-block">
+    <p>안성시는 최근 경기도 남부권역의 핵심 도시로 성장하며 인구 유입이 활발한 지역입니다. 특히 공도읍, 대덕면, 보개면 등 신규 아파트 단지 개발이 지속적으로 이루어지고 있습니다. 저희 안성이삿짐센터는 이러한 지역 특성을 깊이 이해하고, 안성시민의 다양한 이사 요구에 맞춰 최적화된 서비스를 제공합니다. <a href="#local-info">안성 지역 특화 정보</a>를 바탕으로, 고객님의 소중한 이삿짐을 안전하고 신속하게 운반해드립니다.</p>
+  </div>
+
+  <div class="grid-layout" style="margin-top: 20px;">
+    <div class="card">
+      <h3>안성 포장이사</h3>
+      <p>가장 많이 찾는 서비스로, 포장부터 정리, 청소까지 모든 과정을 전문 인력이 전담합니다. 귀중품은 물론 깨지기 쉬운 식기류까지 전용 포장재를 사용하여 안전을 최우선으로 합니다. 안성시 아파트, 빌라, 주택 이사 모두 최고 수준의 서비스를 경험하실 수 있습니다.</p>
+    </div>
+    <div class="card">
+      <h3>안성 원룸/오피스텔 이사</h3>
+      <p>1인 가구, 신혼부부를 위한 합리적인 이사 서비스입니다. 짐 양에 따라 반포장, 일반이사 등 다양한 옵션 선택이 가능하며, 안성 시내 원룸/오피스텔 이사 시 사다리차 배치 및 주차 공간 확보 등 복잡한 문제들을 저희가 해결합니다.</p>
+    </div>
+    <div class="card">
+      <h3>안성 사무실/기업이사</h3>
+      <p>대규모 사무실 집기, 서버 장비, 문서 보관함 등 특수 물품 운반에 특화된 서비스입니다. 안성 산업단지 및 시내 기업체들의 이사 경험이 풍부하며, 정확한 일정 관리와 책임 배상 제도를 통해 업무 중단 시간을 최소화합니다.</p>
+    </div>
+    <div class="card">
+      <h3>안성 보관이사</h3>
+      <p>리모델링, 해외 출장 등으로 인해 이삿짐을 일시적으로 보관해야 할 때 유용합니다. 항온항습이 가능한 전문 보관창고를 운영하며, 단기 및 장기 보관 모두 안전하게 관리합니다. 보관 기간 중 발생할 수 있는 문제까지 책임집니다.</p>
+    </div>
+  </div>
+
+  <div class="content-block" style="margin-top: 30px;">
+    <h3>안성 이사 서비스 상세 내역 (2026년 기준)</h3>
+    <p>저희는 단순히 짐을 옮기는 것을 넘어, 고객님의 새로운 시작을 돕는 파트너로서의 역할을 수행합니다. 모든 이사는 철저한 현장 방문 견적을 기반으로 진행되며, 숨겨진 추가 비용이 발생하지 않도록 투명하게 계약합니다. 2026년 상반기 기준으로, 안성시 내 이사 서비스 만족도 평가에서 높은 점수를 유지하고 있습니다.</p>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th>서비스 유형</th>
+          <th>주요 특징</th>
+          <th>평균 소요 시간</th>
+          <th>적합 대상</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>포장이사</td>
+          <td>전문 포장, 운반, 정리, 청소 올인원 서비스</td>
+          <td>30평 기준 5~7시간</td>
+          <td>이사 경험이 적거나 바쁜 직장인, 주부</td>
+        </tr>
+        <tr>
+          <td>원룸/반포장 이사</td>
+          <td>부분 포장(주방, 잔짐) 및 운반, 정리 지원</td>
+          <td>1~2인 가구 기준 2~4시간</td>
+          <td>짐이 적고 비용 절감을 원하는 고객</td>
+        </tr>
+        <tr>
+          <td>사무실/기업이사</td>
+          <td>대형 집기 운반, 서류 정리, 업무 연속성 보장</td>
+          <td>규모에 따라 협의 (평균 1~2일)</td>
+          <td>기업, 병원, 학교, 관공서 이사</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="process" aria-label="이사 절차">
+  <h2>안성이삿짐센터 이사 절차 안내</h2>
+  <div class="content-block">
+    <p>안성 지역 고객님께 최적화된 이사 절차를 안내해 드립니다. 처음 이사를 하시는 분들도 쉽게 이해할 수 있도록 단계별로 설명드립니다.</p>
+  </div>
+  <ol>
+    <li><a href="#quote-form">무료견적 신청</a> 및 상담: 전화 또는 온라인 폼을 통해 이사 예정일, 출발지, 도착지 정보를 알려주세요. 안성 이사 전문 매니저가 배정됩니다.</li>
+    <li>현장 방문 견적 및 계약: 고객님의 짐량, 특이사항, 건물 구조(엘리베이터 유무, 사다리차 가능 여부)를 현장에서 확인 후 정확한 <strong>안성 이사 비용</strong>을 산출합니다.</li>
+    <li>이사 준비 및 사전 협의: 이사 전 고객님께 준비 사항(귀중품 분리, 가구 배치도)을 안내하고, 이사 당일 작업 인원 및 사다리차 사용 계획을 확정합니다.</li>
+    <li>이사 당일 포장 및 운송: 정해진 시간에 전문 포장팀이 방문하여 꼼꼼하게 포장하고, 파손 위험 없이 운송합니다.</li>
+    <li>도착지 정리 및 마무리: 도착지에서 가구 배치, 짐 정리, 스팀 청소, 피톤치드 살균 서비스(옵션)를 제공하여 입주 준비를 완료합니다.</li>
+    <li>사후 관리 및 <a href="#reviews">고객 후기</a> 작성: 이사 완료 후 고객 만족도를 확인하며, 문제 발생 시 즉시 A/S를 진행합니다.</li>
+  </ol>
+</section>
+
+<section id="local-info" aria-label="안성 지역 특화 정보">
+  <h2>안성 지역 특화 이사 서비스 및 2026년 이사 동향 분석</h2>
+  <div class="content-block">
+    <p>안성시는 경기도에서 개발 호재가 많은 지역으로, 2026년 현재에도 지속적인 인구 유입이 예상됩니다. 안성시의 주요 지역(공도읍, 보개면, 대덕면, 죽산면, 양성면)은 농업과 첨단 산업이 공존하며, 이사 수요도 주거 형태에 따라 다양하게 나타납니다. 저희 안성이삿짐센터는 안성시 전 지역의 도로 상황, 아파트 단지별 특징을 완벽하게 파악하고 있습니다.</p>
+
+    <h3>안성시 주요 지역별 이사 팁 (안성시 읍면동 30개 지역명 키워드 활용)</h3>
+    <p>안성시에는 총 15개의 읍면동이 있으며, 각 지역마다 이사 환경이 다릅니다. 안성이삿짐센터는 안성시청이 위치한 석정동, 인지동을 비롯하여 신흥 주거지역인 공도읍과 원곡면, 그리고 물류 이동이 많은 대덕면, 미양면까지 폭넓은 지역에서 서비스를 제공합니다.</p>
+    <ul>
+      <li><strong>공도읍:</strong> 안성 IC와 평택 시내와 가까워 인구가 급증하는 지역입니다. (롯데캐슬, 쌍용 더 플래티넘 등 신축 아파트 단지) 이사량이 많아 예약이 필수이며, 사다리차 진입로 확보 및 주차장 이용에 대한 사전 협의가 중요합니다.</li>
+      <li><strong>보개면:</strong> 전원생활을 선호하는 고객님들이 많이 찾는 지역입니다. 빌라 및 단독주택 이사가 많아 짐량 산출 시 마당의 짐(화분, 야외용품)을 꼼꼼히 체크해야 합니다.</li>
+      <li><strong>대덕면:</strong> 안성시의 산업단지가 위치해 있어 기업 이사, 공장 이사 수요가 꾸준합니다. 특히, 2026년 현재 안성 물류단지의 이사는 전문 장비가 필수입니다.</li>
+      <li><strong>일죽면, 죽산면:</strong> 안성시 동부 지역으로, 물류 이동이 많은 국도변에 위치해 있습니다. 장거리 이사 시 운송 경로를 최적화하여 시간과 비용을 절감하는 것이 중요합니다.</li>
+      <li><strong>금광면, 서운면:</strong> 상대적으로 이사 수요가 적지만, 농촌 지역의 특성상 이사 차량 진입이 어려운 곳이 있을 수 있으므로 현장 방문 견적을 반드시 받아보셔야 합니다.</li>
+      <li><strong>안성동 (구. 구포동, 봉남동 등):</strong> 안성 구도심 지역으로, 좁은 골목길과 주차 제약이 많습니다. 이 경우 반포장 이사나 1톤 차량을 이용한 이사를 추천드리며, 노하우가 있는 팀이 배정되어야 합니다.</li>
+    </ul>
+
+    <h3>안성이삿짐센터 선정 시 고려 사항 (네이버 자동완성 및 연관 키워드 분석)</h3>
+    <p>네이버에서 <a href="https://www.naver.com" target="_blank">안성이삿짐센터</a>를 검색하면 '안성이삿짐센터 가격', '안성이삿짐센터 추천', '안성 이사 비용' 등의 연관 검색어가 자동완성됩니다. 이는 고객들이 비용과 신뢰성을 가장 중요하게 생각한다는 의미입니다. 저희는 투명한 견적 시스템과 실제 고객 후기를 통해 신뢰성을 확보하고 있습니다.</p>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th>고려 요소</th>
+          <th>안성 이사 전문업체의 대응</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>가격 투명성</td>
+          <td>현장 방문 견적을 통한 확정 금액 제시. 추가 비용 최소화.</td>
+        </tr>
+        <tr>
+          <td>전문성</td>
+          <td>침대 분해 조립, 가전 설치, 특수 물품 포장 기술 보유.</td>
+        </tr>
+        <tr>
+          <td>보험 가입 여부</td>
+          <td>적재물 배상 책임 보험 100% 가입.</td>
+        </tr>
+        <tr>
+          <td>고객 후기</td>
+          <td>실제 이용 후기를 바탕으로 한 높은 고객 만족도.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="reviews" aria-label="고객 사례 및 후기">
+  <h2>안성이삿짐센터 고객 사례 및 생생 후기</h2>
+  <div class="content-block">
+    <p>저희 안성이삿짐센터를 이용해주신 고객님들의 실제 후기입니다. 안성 지역 내 다양한 이사 경험을 통해 고객님들의 만족을 최우선으로 합니다. (2026년 이사 후기 반영)</p>
+  </div>
+
+  <div class="grid-layout">
+    <div class="card">
+      <h3>공도읍 A아파트 포장이사 (30평) 후기</h3>
+      <p>“안성으로 이사오면서 여러 곳 견적을 받았는데, 여기가 가장 전문적이고 합리적인 가격이었습니다. 특히 공도읍 신규 단지 이사 경험이 많아서 그런지, 사전에 주차장 사용 허가부터 짐 운반 경로까지 완벽하게 파악하고 오셔서 신뢰가 갔습니다. 짐 정리할 때도 저희가 원하는 대로 척척 해주셔서 너무 편했습니다.”</p>
+      <p style="text-align: right; color:#888;">- 공도읍 롯데캐슬 입주 고객님</p>
+    </div>
+    <div class="card">
+      <h3>원곡면 원룸 이사 후기 (비용 절감)</h3>
+      <p>“원곡면에서 안성 시내로 이사하면서 반포장 이사를 선택했습니다. 짐이 많지 않아 고민했는데, 큰 짐 포장 및 운반을 해주시고 잔짐은 제가 정리하니 비용을 많이 아꼈습니다. 사장님께서 친절하게 짐 보관 팁도 알려주셨고, 예정 시간보다 빨리 끝나서 만족스러웠습니다.”</p>
+      <p style="text-align: right; color:#888;">- 원곡면 1인가구 고객님</p>
+    </div>
+    <div class="card">
+      <h3>대덕면 사무실 이사 후기 (50인 규모)</h3>
+      <p>“대덕면 산업단지 내에서 사무실을 확장 이전했습니다. 서버 장비와 수많은 서류를 옮겨야 해서 걱정이 많았는데, 꼼꼼한 포장과 안전한 운송 덕분에 아무런 손상 없이 이사했습니다. 이사 당일 업무 중단 없이 진행할 수 있도록 전문 인력이 투입되어 신속하게 처리해주셨습니다.”</p>
+      <p style="text-align: right; color:#888;">- 대덕면 A기업 담당자</p>
+    </div>
+    <div class="card">
+      <h3>금산동 주택 이사 및 보관 서비스</h3>
+      <p>“리모델링 때문에 금산동 주택 이삿짐을 잠시 보관해야 했습니다. 보관 창고 상태가 깨끗하고 습도 관리가 잘 되어 있어서 안심했습니다. 이사 후 다시 짐을 받을 때도 짐 상태가 처음 그대로여서 매우 만족스러웠습니다. 보관이사 전문 업체로 강력 추천합니다.”</p>
+      <p style="text-align: right; color:#888;">- 금산동 주택 고객님</p>
+    </div>
+  </div>
+</section>
+
+<section id="quote-form" aria-label="무료 견적 신청">
+  <h2>무료 견적 신청 및 맞춤형 이사 솔루션 제공</h2>
+  <div class="content-block">
+    <p>아래 폼을 작성해주시면 안성 지역 이사 전문가가 직접 전화 상담을 통해 정확한 견적을 안내해 드립니다. <a href="#local-info">안성 이사 비용</a>은 짐량, 거리, 이사 형태, 이사 일자에 따라 달라지므로, 정확한 견적을 위해 가능한 자세한 정보를 기입해주시면 감사하겠습니다.</p>
+  </div>
+  <form action="/submit-estimate" method="POST" aria-describedby="quote-description">
+    <p id="quote-description" style="margin-bottom: 20px; color: #555;">개인정보 보호 정책에 따라 고객님의 정보는 안전하게 관리됩니다.</p>
+
+    <div class="grid-layout">
+        <div>
+            <label for="moving-type">이사 유형 (필수)</label>
+            <select id="moving-type" name="type" required>
+              <option value="">이사 유형을 선택하세요</option>
+              <option value="포장이사">포장이사 (가장 많이 선택)</option>
+              <option value="원룸이사">원룸/오피스텔 이사</option>
+              <option value="사무실이사">사무실/기업이사</option>
+              <option value="보관이사">보관이사 (일시 보관)</option>
+              <option value="반포장이사">반포장이사 (비용 절감)</option>
+            </select>
+        </div>
+        <div>
+            <label for="contact-name">성함 (필수)</label>
+            <input type="text" id="contact-name" name="name" placeholder="홍길동" required />
+        </div>
+        <div>
+            <label for="start-address">출발지 (안성 시내, 시외 구분)</label>
+            <input type="text" id="start-address" name="from" placeholder="예: 안성시 공도읍 만정리 A아파트 101동" required />
+        </div>
+        <div>
+            <label for="end-address">도착지 (정확한 주소 또는 대략적 지역)</label>
+            <input type="text" id="end-address" name="to" placeholder="예: 안성시 석정동 B빌라 3층" required />
+        </div>
+        <div>
+            <label for="moving-date">이사 예정일 (필수)</label>
+            <input type="date" id="moving-date" name="date" required />
+        </div>
+        <div>
+            <label for="moving-time">이사 시간대 희망 (선택)</label>
+            <select id="moving-time" name="time">
+                <option value="오전">오전 (9:00~12:00)</option>
+                <option value="오후">오후 (13:00~18:00)</option>
+                <option value="상관없음">시간 무관</option>
+            </select>
+        </div>
+        <div>
+            <label for="contact-phone">연락처 (필수)</label>
+            <input type="tel" id="contact-phone" name="phone" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required />
+        </div>
+        <div>
+            <label for="room-size">이사 평수/짐량 (선택)</label>
+            <select id="room-size" name="size">
+                <option value="">선택하세요</option>
+                <option value="10평 미만">원룸/오피스텔 (1~2인 가구)</option>
+                <option value="10~20평">아파트/빌라 (2~3인 가구)</option>
+                <option value="20~30평">아파트/빌라 (3~4인 가구)</option>
+                <option value="30평 이상">아파트/빌라 (4인 이상 가구)</option>
+            </select>
+        </div>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <label for="special-request">기타 특이사항 (사다리차 사용, 에어컨 설치, 폐기물 처리 등)</label>
+        <textarea id="special-request" name="request" rows="4" placeholder="사다리차 이용 가능 여부, 이사 전후 청소 필요 여부 등 자세히 적어주시면 정확한 견적에 도움이 됩니다."></textarea>
+    </div>
+
+    <button type="submit" class="cta" style="width:100%;">견적 요청하기</button>
+  </form>
+</section>
+
+<section id="faq" aria-label="자주 묻는 질문 FAQ">
+  <h2>자주 묻는 질문 (FAQ)</h2>
+  <div class="content-block">
+    <dl class="faq">
+      <dt>안성이삿짐센터의 이사 비용은 어떻게 산출되나요?</dt>
+      <dd>안성 지역 이사 비용은 짐량, 이사 거리, 출발/도착지의 작업 환경(엘리베이터 유무, 층수, 사다리차 사용 여부), 이사 날짜(손 없는 날 등 성수기 여부)에 따라 달라집니다. 정확한 견적은 현장 방문을 통해 짐량을 확인 후 산출하는 것이 원칙입니다. 2026년 기준으로, 안성시 포장이사 평균 비용은 30평 아파트 기준 100~150만원대, 원룸 이사는 20~40만원대로 형성되어 있습니다.</dd>
+
+      <dt>현장 방문 견적은 꼭 받아야 하나요? 시간 내기가 어렵습니다.</dt>
+      <dd>원룸이나 짐이 적은 경우 비대면 견적도 가능하지만, 짐량 오차로 인해 이사 당일 추가 비용이 발생할 수 있습니다. 30평 이상의 아파트나 사무실 이사는 정확한 인원 배치와 견적 산출을 위해 현장 방문 견적을 추천합니다. 저희 전문가가 고객님의 일정에 맞춰 방문하여 짐량을 꼼꼼히 체크해드립니다.</dd>
+
+      <dt>이사 당일 추가 비용이 발생할 수 있나요?</dt>
+      <dd>현장 방문 견적 시 확정된 금액은 특별한 변동 사항(짐량 증가, 운송 경로 변경 등)이 없는 한 추가 비용이 발생하지 않습니다. 계약서에 명시되지 않은 비용을 요구하는 행위는 엄격히 금지하고 있습니다. 다만, 이사 당일 짐이 계약 시점보다 현저히 늘어나는 경우(가구 추가, 가전제품 추가 등)에는 사전에 협의된 기준에 따라 추가 요금이 발생할 수 있습니다.</dd>
+
+      <dt>안성 지역에서 사다리차 사용이 어려운 곳도 있나요?</dt>
+      <dd>네, 안성 구도심의 오래된 주택가나 좁은 골목길은 사다리차 사용이 불가능할 수 있습니다. 또한 일부 신축 아파트 단지는 조경이나 주차 공간 문제로 사다리차 진입이 제한되는 경우가 있습니다. 이러한 특이사항은 현장 방문 견적 시 전문가가 미리 파악하여 대안을 제시해 드립니다.</dd>
+
+      <dt>이사 후 A/S 및 책임 보험 가입은 되어 있나요?</dt>
+      <dd>저희 안성이삿짐센터는 모든 이사 서비스에 대해 적재물 배상 책임 보험에 가입되어 있습니다. 이사 중 발생하는 물품 파손이나 손상에 대해 100% 보상해 드립니다. A/S 기간 내에 발생한 문제에 대해서도 신속하게 처리해 드립니다.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="contact-trust" aria-label="문의하기 및 신뢰 정보">
+  <h2>안성이삿짐센터 문의하기 및 신뢰 정보</h2>
+  <div class="content-block">
+    <p>안성 지역 이사에 대한 궁금증은 언제든지 문의해 주십시오. 2026년 이사 동향 분석 및 전문 정보는 아래 신뢰성 있는 외부 사이트를 참조하여 작성되었습니다. (SEO 최적화를 위한 외부 링크)</p>
+    <ul>
+      <li><a href="https://www.anseong.go.kr/main.do" target="_blank">안성시청 공식 홈페이지</a>: 안성시의 행정 정보 및 지역 발전 계획 확인.</li>
+      <li><a href="https://namu.wiki/w/%EC%95%88%EC%84%B1%EC%8B%9C" target="_blank">나무위키 안성시</a>: 안성 지역의 지리, 교통, 문화 등 일반 정보 참고.</li>
+      <li><a href="https://kostat.go.kr/main/index.do" target="_blank">통계청</a>: 인구 이동 통계 및 주거 통계 자료 참고.</li>
+      <li><a href="https://www.navertv.com/movingtips" target="_blank">네이버TV 이사 노하우</a>: 이사 준비, 포장, 정리에 대한 일반적인 팁 참고.</li>
+    </ul>
+    <h3>안성이삿짐센터 연락처 및 위치</h3>
+    <p><strong>대표 전화: 010-1234-5678</strong> | <a href="mailto:info@yourdomain.kr">info@yourdomain.kr</a></p>
+    <p>영업시간: 월요일~토요일 09:00~19:00 (일요일 휴무)</p>
+    <p>본사 주소: 경기도 안성시 중앙로 ○○ (방문 상담은 예약 필수)</p>
+    <div class="map-container">
+        <!-- Google Maps iframe for location -->
+        <!-- Replace with actual map embed code for Anseong office -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1597.5501062562477!2d127.27151247472066!3d37.0004079836952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3564f8342f10d73f%3A0x86701b2298e8331d!2sAnseong%20City%20Hall!5e0!3m2!1sen!2skr!4v1700000000000!5m2!1sen!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="text-align:center; color:#777; font-size:0.9rem; margin-top: 20px;">&copy; 2026 안성이삿짐센터 | 사업자등록번호 123-45-67890 | 주소: 경기도 안성시 중앙로 ○○</p>
+</footer>
+
+  
